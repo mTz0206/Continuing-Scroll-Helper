@@ -1,5 +1,6 @@
 # Continuing-Scroll-Helper
 这是一个用来解决嵌套的ScrollView视图结构下连续滑动的问题的Helper
+
 This helper is used for improving continuing-scrolling in nested UIScrollview UI structure.
 
 ![image](https://github.com/mTz0206/Continuing-Scroll-Helper/tree/master/Demo/gif.gif)
@@ -9,15 +10,15 @@ This helper is used for improving continuing-scrolling in nested UIScrollview UI
 Add a webView cell into a tableView , it is a common UI structure. Up views are written by native,and add a web view on bottom to show some H5 page , so in this case there are two scrollViews nested together, scrolling events are not easy to control. One solution is to directly set the height of the webView cell equal to the height of the contentSize, if we do like that ,it will cause memory issue when the web view is too large. so the maximum height of webView is the height of the screen.
 
 ```objc
-ContinuingScrollHelper *helper = [[ContinuingScrollHelper alloc] initWithScrollView:_tableView superView:self.view];
-[helper setFrame:CGRectMake(0, 0, GET_FULL_WIDTH, GET_FULL_HEIGHT)];
-_helper = helper;
+  ContinuingScrollHelper *helper = [[ContinuingScrollHelper alloc] initWithScrollView:_tableView superView:self.view];
+  [helper setFrame:CGRectMake(0, 0, GET_FULL_WIDTH, GET_FULL_HEIGHT)];
+  _helper = helper;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-...
-scrollCell =[tableView dequeueReusableCellWithIdentifier:@"cell"];
-[_helper setSecondScrollView:_scrollCell.scrollView];
-...
+  ...
+  scrollCell =[tableView dequeueReusableCellWithIdentifier:@"cell"];
+  [_helper setSecondScrollView:_scrollCell.scrollView];
+  ...
 }
 ```
