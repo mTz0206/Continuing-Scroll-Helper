@@ -1,7 +1,8 @@
 # Continuing-Scroll-Helper
 这是一个用来解决嵌套的ScrollView视图结构下连续滑动的问题的Helper
 This helper is used for improving continuing-scrolling in nested UIScrollview UI structure.
-![image](https://github.com/Yesi-hoang/TaoBaoTopLine/blob/master/Gif/TaoBaoTopLineGif.gif)
+
+![image](http://gph.is/2gv1Bgc)
 
 在一个tableView中加入一个webView cell 这个是一个常见的图层结构。上面是native的页面，下面是web的页面，这种情况下就有两个scrollView 嵌套在了一起，滚动事件就不太容易控制。一种解决方案就是直接把webView cell的高度直接设置成contentSize的高度，这样的话webView就全部展开了。带来的问题就是如果webView的内容过大会造成内存问题，所以webView的最大高度就是屏幕的高度。
 
